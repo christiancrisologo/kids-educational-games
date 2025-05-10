@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fef6ff;
+  --foreground: #2d1441;
+}
+
+.dark {
+  --background: #2d1441;
+  --foreground: #fef6ff;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-image: radial-gradient(circle at 1px 1px, #ffd7be 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.quiz-button {
+  @apply w-full rounded-3xl p-6 font-bold transition-all duration-300 border-4 border-transparent shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.quiz-button:focus {
+  outline: none;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+}
+
+.quiz-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quiz-button-correct {
+  @apply bg-emerald-500 text-white border-emerald-400;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  animation: celebrateCorrect 0.6s ease-out;
+}
+
+@keyframes celebrateCorrect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.quiz-button-correct:hover {
+  background-color: #16a34a;
+}
+
+.quiz-button-incorrect {
+  @apply bg-rose-500 text-white border-rose-400;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.quiz-button-incorrect:hover {
+  background-color: #dc2626;
+}
+
+.quiz-button-default {
+  @apply bg-indigo-500 text-white hover:bg-indigo-600 border-indigo-400;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.quiz-button-default:hover {
+  background-color: #2563eb;
+}
+
+.quiz-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.dark .quiz-card {
+  background-color: #1f2937;
+}
+
+.quiz-card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.quiz-input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.dark .quiz-input {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: white;
+}
+
+.quiz-input:focus {
+  outline: none;
+  border-color: transparent;
+  --tw-ring-color: #3b82f6;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.quiz-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.dark .quiz-label {
+  color: #d1d5db;
+}
+
+.quiz-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.dark .quiz-heading {
+  color: white;
+}
+
+.quiz-text {
+  color: #4b5563;
+}
+
+.dark .quiz-text {
+  color: #9ca3af;
+}
